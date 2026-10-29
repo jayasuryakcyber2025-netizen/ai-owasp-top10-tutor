@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive learning project for the OWASP Top 10:2025 web application security risks.">
+  <title>OWASP Tutor | Learn Application Security</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="OWASP Tutor home"><span class="brand-mark">O</span> OWASP<span class="muted">Tutor</span></a>
+    <nav><a href="#learn">Learn</a><a href="#tutor">Ask Tutor</a><a href="#quiz">Quiz</a></nav>
+    <button id="themeToggle" class="icon-btn" aria-label="Toggle color theme">☼</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> INTERACTIVE SECURITY LEARNING</div>
+        <h1>Understand risks.<br><span class="gradient-text">Build safer apps.</span></h1>
+        <p>A beginner-friendly guide to the OWASP Top 10:2025, with practical examples, a study assistant, and a knowledge quiz.</p>
+        <div class="hero-actions"><a class="btn primary" href="#learn">Start learning <span>↗</span></a><a class="btn secondary" href="#quiz">Take the quiz</a></div>
+        <div class="hero-meta"><span>✓ No account needed</span><span>✓ Works offline</span><span>✓ Free learning project</span></div>
+      </div>
+      <div class="hero-visual" aria-label="Application security dashboard illustration">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="shield"><span>✓</span></div>
+        <div class="float-card card-top"><span class="mini-icon">⌘</span><div><b>Security first</b><small>Learn by example</small></div></div>
+        <div class="float-card card-bottom"><span class="status-dot"></span><div><b>10 risk categories</b><small>OWASP Top 10 · 2025</small></div></div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div><strong>10</strong><span>Risk categories</span></div>
+      <div><strong id="learnedCount">0</strong><span>Topics completed</span></div>
+      <div><strong id="bestScore">—</strong><span>Best quiz score</span></div>
+      <div><strong>100%</strong><span>Browser-based</span></div>
+    </section>
+
+    <section id="learn" class="section">
+      <div class="section-heading">
+        <div><div class="eyebrow">THE LEARNING PATH</div><h2>Explore the Top 10</h2><p>Choose a topic to learn what it means and how developers can reduce the risk.</p></div>
+        <div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search topics..." aria-label="Search topics"></div>
+      </div>
+      <div class="topic-layout">
+        <div id="topicGrid" class="topic-grid" aria-live="polite"></div>
+        <aside id="topicDetail" class="detail-panel">
+          <div class="detail-placeholder"><span class="large-shield">◈</span><h3>Pick a topic</h3><p>Select any risk card to open its study notes, example, and prevention tips.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="tutor" class="section tutor-section">
+      <div class="section-heading"><div><div class="eyebrow">YOUR STUDY COMPANION</div><h2>Ask the security tutor</h2><p>Ask a question about one of the ten categories or try a suggested prompt.</p></div></div>
+      <div class="chat-shell">
+        <div class="chat-header"><div class="bot-avatar">✦</div><div><b>OWASP Study Assistant</b><small><span class="status-dot"></span> Ready to help</small></div><span class="local-tag">LOCAL DEMO</span></div>
+        <div id="chatMessages" class="chat-messages" aria-live="polite">
+          <div class="message bot"><div class="message-avatar">✦</div><div class="bubble">Hi! I can explain OWASP Top 10:2025 topics in beginner-friendly language. Try asking “What is injection?” or “How can I prevent broken access control?”</div></div>
+        </div>
+        <div class="suggestions"><button class="suggestion">Explain injection</button><button class="suggestion">What is supply-chain risk?</button><button class="suggestion">Give me a study tip</button></div>
+        <form id="chatForm" class="chat-form"><input id="chatInput" maxlength="400" autocomplete="off" placeholder="Ask about a security topic..." aria-label="Ask the tutor" required><button class="send-btn" type="submit" aria-label="Send message">➤</button></form>
+        <p class="chat-note">This demo uses a small local knowledge base, not a live AI model. It sends no chat data to a server.</p>
+      </div>
+    </section>
+
+    <section id="quiz" class="section quiz-section">
+      <div class="section-heading"><div><div class="eyebrow">CHECK YOUR UNDERSTANDING</div><h2>Knowledge check</h2><p>Answer five questions to review the concepts. You can try again anytime.</p></div></div>
+      <div class="quiz-card">
+        <div class="quiz-top"><span id="questionCounter">QUESTION 1 / 5</span><span id="quizScoreLabel">Score: 0</span></div>
+        <div class="progress-track"><div id="quizProgress" class="progress-fill"></div></div>
+        <h3 id="questionText">Loading question…</h3>
+        <div id="answerOptions" class="answer-options"></div>
+        <div id="quizFeedback" class="quiz-feedback" aria-live="polite"></div>
+        <div class="quiz-controls"><button id="restartQuiz" class="btn secondary">Restart</button><button id="nextQuestion" class="btn primary" disabled>Next question →</button></div>
+      </div>
+    </section>
+
+    <section class="callout"><div class="callout-icon">⌁</div><div><h3>Keep learning responsibly</h3><p>Use these examples only for education and defensive development. Practice security testing on systems you own or have explicit permission to test.</p></div><a href="https://top10.owasp.org/2025/" target="_blank" rel="noopener noreferrer">Official OWASP guide ↗</a></section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-mark">O</span> OWASP<span class="muted">Tutor</span></a><span>Educational demo · OWASP Top 10:2025</span><a href="https://owasp.org/" target="_blank" rel="noopener noreferrer">OWASP.org ↗</a></footer>
+  <script src="script.js"></script>
+</body>
+</html>
